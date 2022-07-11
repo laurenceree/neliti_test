@@ -1,0 +1,110 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>
+            Weather forecast application for Neliti 
+        </title>
+        {% load static %}
+        <script src="{% static 'js/index.js' %}"></script>
+        <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="{% static 'css/index.css' %}" type="text/css" />
+    
+    </head>
+    <body>
+        <div class="container">
+            <div className="coordinate">
+                <div className="title">
+                  <h2>Lon</h2>
+                  <h3>Lat<h3>
+                </div>
+                <div className="mb-icon">
+                  
+                  <p>Cloudy</p>
+                </div>
+                <div className="date-time">
+                  <div className="dmy">
+                    <div id="txt"></div>
+                   
+                    <div className="current-date"></div>
+                  </div>
+                  <div className="temperature">
+                    <p>
+                      20 °<span>C</span>
+                    </p>
+                    
+                  </div>
+                </div>
+            </div>
+
+            <div className="forecast">
+                <div className="forecast-icon">
+                  Cloudy
+                </div>
+                <div className="today-weather">
+                  <h3>Rainy</h3>
+                  <div className="search-box">
+                    <input
+                      type="text"
+                      className="search-bar"
+                      placeholder="Search any coordinate"
+                      onChange=""
+                      value={query}
+                    />
+                    <div className="img-box">
+                      
+                      <img
+                        src="https://images.avishkaar.cc/workflow/newhp/search-white.png"
+                        onClick="javascript:void(0)"
+                      />
+                    </div>
+                  </div>
+                  <ul>
+                    
+                      <div>
+                        
+                        <li className="coordinate">
+                          <p>
+                            Weather 
+                          </p>
+                         
+                        </li>
+                        <li>
+                          Temperature 
+                          <span className="temp">
+                            12
+                          </span>
+                        </li>
+                        <li>
+                          Humidity
+                          <span className="temp">
+                            {Math.round(weather.main.humidity)}%
+                          </span>
+                        </li>
+                        <li>
+                          Visibility
+                          <span className="temp">
+                            80 mi
+                          </span>
+                        </li>
+                        <li>
+                          Wind Speed
+                          <span className="temp">
+                            10 Km/h
+                          </span>
+                        </li>
+                      </div>
+                    
+                  </ul>
+                </div>
+              </div>
+        </div>
+
+        <script type="text/javascript">
+        
+            $(document).ready(function(){
+                $('.current-date').html(dateBuilder(new Date()));
+            });
+        
+        </script>
+    </body>
+</html>
